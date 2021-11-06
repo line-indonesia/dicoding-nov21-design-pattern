@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test:1.5.31"))
+    testImplementation(libs.kt.test)
 }
 
 tasks {
