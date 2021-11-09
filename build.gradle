@@ -1,0 +1,29 @@
+plugins {
+    id "application"
+    id "java"
+}
+group = "com.linecorp.id"
+version = "1.0-SNAPSHOT"
+
+allprojects {
+    apply plugin: "java"
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation(libs.junit)
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+
+wrapper {
+    gradleVersion = "7.2"
+}
+
+application {
+    mainClassName = "com.linecorp.id.mptd.App"
+}
