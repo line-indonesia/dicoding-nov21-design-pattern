@@ -1,4 +1,4 @@
-package com.linecorp.id.mptd;
+package com.linecorp.id.design.pattern;
 
 public class App {
 

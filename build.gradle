@@ -25,5 +25,5 @@ wrapper {
 }
 
 application {
-    mainClassName = "com.linecorp.id.mptd.App"
+    mainClassName = "com.linecorp.id.design.pattern.App"
 }

@@ -1,6 +1,6 @@
 enableFeaturePreview("VERSION_CATALOGS")
 
-rootProject.name = "medan-perang-tidak-diketahui"
+rootProject.name = "line-design-pattern"
 
 dependencyResolutionManagement {
     versionCatalogs {
