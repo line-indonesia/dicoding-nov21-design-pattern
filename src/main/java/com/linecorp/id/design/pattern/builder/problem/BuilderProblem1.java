@@ -1,6 +1,5 @@
 package com.linecorp.id.design.pattern.builder.problem;
 
-
 import com.linecorp.id.design.pattern.builder.HttpClient;
 
 public class BuilderProblem1 {
