@@ -1,0 +1,104 @@
+package com.linecorp.id.design.pattern.factory.problem.FactoryProblem;
+
+import com.linecorp.id.design.pattern.factory.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class FactoryProblem {
+
+    public void run() {
+        // suppose we have a dynamic promo page, where admin can set the promo page layout in the backend
+        List<UiResponse> responses = new ArrayList<>();
+        responses.add(new UiResponse(UiType.TITLE, "Welcome to LINE"));
+        responses.add(new UiResponse(UiType.IMAGE, "https://id.wikipedia.org/wiki/Berkas:LINE_logo.svg"));
+        responses.add(new UiResponse(UiType.TEXT, "LINE is a fun messenger built for you"));
+
+        // how to render the settings from server into a UI object in client?
+        List<UiElement> uiElements = new ArrayList<>();
+
+        for (UiResponse response : responses) {
+            // what to do?
+        }
+
+        for (UiElement element : uiElements) {
+            System.out.println(element);
+        }
+    }
+}
+
+public class UiResponse {
+    private final UiType uiType;
+    private final String value;
+
+    public UiResponse(UiType uiType, String value) {
+        this.uiType = uiType;
+        this.value = value;
+    }
+
+    public UiType getUiType() {
+        return uiType;
+    }
+
+    public String getValue() {
+        return value;
+    }
+}
+
+public interface UiElement {
+    String getValue();
+}
+
+public class Image implements UiElement {
+    private final String value;
+
+    public Image(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Image with url: " + value;
+    }
+}
+
+public class Text implements UiElement {
+    private final String value;
+
+    public Text(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Text with content: " + value;
+    }
+}
+
+public class Title implements UiElement {
+    private final String value;
+
+    public Title(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public String getValue() {
+        return value;
+    }
+
+    @Override
+    public String toString() {
+        return "Title with content: " + value;
+    }
+}

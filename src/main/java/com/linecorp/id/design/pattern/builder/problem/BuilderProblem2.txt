@@ -1,0 +1,52 @@
+package com.linecorp.id.design.pattern.builder.problem;
+
+import com.linecorp.id.design.pattern.builder.HttpClient;
+
+public class BuilderProblem2 {
+    public void run() {
+        HttpClient client1 = getMyClient(false , false);
+        HttpClient client2 = getMyClient(true, false);
+        HttpClient client3 = getMyClient(false, true);
+        HttpClient client4 = getMyClient(true, true);
+        System.out.println(client1);
+        System.out.println(client2);
+        System.out.println(client3);
+        System.out.println(client4);
+    }
+
+    private HttpClient getMyClient(
+            boolean isClientFast,
+            boolean isConnectionGood
+    ) {
+        return new HttpClient(30, 30, 30, 3);
+    }
+}
+
+public class HttpClient {
+    private final int connectTimeout;
+    private final int writeTimeout;
+    private final int readTimeout;
+    private final int retryCount;
+
+    public HttpClient(
+            int connectTimeout,
+            int writeTimeout,
+            int readTimeout,
+            int retryCount
+    ) {
+        this.connectTimeout = connectTimeout;
+        this.writeTimeout = writeTimeout;
+        this.readTimeout = readTimeout;
+        this.retryCount = retryCount;
+    }
+
+    @Override
+    public String toString() {
+        return "{\n" +
+                "  connectTimeout: " + connectTimeout + ",\n" +
+                "  writeTimeout: " + writeTimeout + ",\n" +
+                "  readTimeout: " + readTimeout + ",\n" +
+                "  retryCount: " + retryCount + ",\n" +
+                "}";
+    }
+}
