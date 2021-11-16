@@ -1,0 +1,15 @@
+package com.linecorp.id.design.pattern.singleton.problem;
+
+public class SingletonProblem1 {
+    public void run() {
+        // how to create single instance in single thread
+        Instance instance1 = new Instance();
+        Instance instance2 = new Instance();
+        System.out.println(instance1.hashCode());
+        System.out.println(instance2.hashCode());
+    }
+}
+
+public class Instance {
+
+}
