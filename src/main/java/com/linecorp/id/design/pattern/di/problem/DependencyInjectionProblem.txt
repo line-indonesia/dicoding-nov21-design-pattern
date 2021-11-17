@@ -1,0 +1,37 @@
+package com.linecorp.id.design.pattern.di.solution;
+
+public class DependencyInjectionProblem {
+    public void run() {
+        // we want to create object from high-level
+        // how to pass the object from high-level to low-level
+        DependencyInjection dependencyInjection = DependencyInjection();
+        dependencyInjection.getFuelType();
+    }
+}
+
+public class DependencyInjection {
+    private Car car;
+    private Airplane airplane;
+
+    public DependencyInjection() {
+        this.car = Car();
+        this.airplane = Airplane();
+    }
+
+    public void getFuelType() {
+        car.getFuelType();
+        airplane.getFuelType();
+    }
+}
+
+public class Car {
+    void getFuelType() {
+        System.out.println("Electricity")
+    }
+}
+
+public class Airplane {
+   void getFuelType() {
+        System.out.println("Avtur")
+   }
+}
