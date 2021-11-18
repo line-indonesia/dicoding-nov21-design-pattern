@@ -2,36 +2,40 @@ package com.linecorp.id.design.pattern.di.solution;
 
 public class DependencyInjectionProblem {
     public void run() {
-        // we want to create object from high-level
+        // we want to create object from high-level (outside class)
         // how to pass the object from high-level to low-level
-        DependencyInjection dependencyInjection = DependencyInjection();
-        dependencyInjection.getFuelType();
+        ContactRepository contactRepository = ContactRepository();
+        contactRepository.getListContact();
     }
 }
 
-public class DependencyInjection {
-    private Car car;
-    private Airplane airplane;
+public class ContactRepository {
 
-    public DependencyInjection() {
-        this.car = Car();
-        this.airplane = Airplane();
+    private Contact remoteContact;
+    private Contact localContact;
+
+    public ContactRepository() {
+        this.remoteContact = RemoteContact();
+        this.localContact = LocalContact();
     }
 
-    public void getFuelType() {
-        car.getFuelType();
-        airplane.getFuelType();
-    }
-}
-
-public class Car {
-    void getFuelType() {
-        System.out.println("Electricity")
+    public void getListContact() {
+        remoteContact.getListContact();
+        localContact.getListContact();
     }
 }
 
-public class Airplane {
-   void getFuelType() {
-        System.out.println("Avtur")
-   }
+public class LocalContact {
+
+    public void getListContact() {
+        System.out.println("Get list contact from local storage")
+    }
 }
+
+public class RemoteContact {
+
+    public void getListContact() {
+        System.out.println("Get list contact from API")
+    }
+}
+

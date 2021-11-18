@@ -1,14 +1,10 @@
 package com.linecorp.id.design.pattern.di.solution;
 
 public class DependencyInjectionSolution {
-
-    private Vehicle vehicle;
-
-    public DependencyInjectionSolution(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
-    public void getFuelType() {
-        vehicle.getFuelType();
+    public void run() {
+        Contact remoteContact = new RemoteContact();
+        Contact localContact = new LocalContact();
+        ContactRepository contactRepository = new ContactRepository(remoteContact, localContact);
+        contactRepository.getListContact();
     }
 }
