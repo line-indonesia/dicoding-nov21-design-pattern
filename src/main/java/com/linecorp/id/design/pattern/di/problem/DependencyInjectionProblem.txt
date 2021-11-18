@@ -2,40 +2,42 @@ package com.linecorp.id.design.pattern.di.solution;
 
 public class DependencyInjectionProblem {
     public void run() {
-        // we want to create object from high-level (outside class)
-        // how to pass the object from high-level to low-level
-        ContactRepository contactRepository = ContactRepository();
-        contactRepository.getListContact();
+        // how to change the implementation to RemoteContactRepository?
+        ContactService contactService = new ContactService();
+        ProfileService profileService = new ProfileService();
     }
 }
 
-public class ContactRepository {
+public class ContactService {
+    private ContactRepository repository;
 
-    private Contact remoteContact;
-    private Contact localContact;
-
-    public ContactRepository() {
-        this.remoteContact = RemoteContact();
-        this.localContact = LocalContact();
+    public ContactService() {
+        this.repository = new LocalContactRepository();
     }
+}
 
+public class ProfileService {
+    private ContactRepository repository;
+
+    public ProfileService() {
+        this.repository = new LocalContactRepository();
+    }
+}
+
+interface ContactRepository {
+    public void getListContact();
+}
+
+public class LocalContactRepository implements ContactRepository {
+    @Override
     public void getListContact() {
-        remoteContact.getListContact();
-        localContact.getListContact();
+        System.out.println("Get contact from local storage");
     }
 }
 
-public class LocalContact {
-
+public class RemoteContactRepository implements Contact {
+    @Override
     public void getListContact() {
-        System.out.println("Get list contact from local storage")
+        System.out.println("Get contact from API");
     }
 }
-
-public class RemoteContact {
-
-    public void getListContact() {
-        System.out.println("Get list contact from API")
-    }
-}
-

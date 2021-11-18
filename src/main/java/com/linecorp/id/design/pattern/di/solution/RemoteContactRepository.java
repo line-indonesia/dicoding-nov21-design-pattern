@@ -1,6 +1,6 @@
 package com.linecorp.id.design.pattern.di.solution;
 
-public class RemoteContact implements Contact {
+public class RemoteContactRepository implements ContactRepository {
 
     @Override
     public void getListContact() {
