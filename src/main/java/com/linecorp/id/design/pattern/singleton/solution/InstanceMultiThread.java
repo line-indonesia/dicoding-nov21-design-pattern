@@ -1,6 +1,6 @@
 package com.linecorp.id.design.pattern.singleton.solution;
 
-public class InstanceMultiThread {
+public final class InstanceMultiThread {
 
     private static InstanceMultiThread instance;
 

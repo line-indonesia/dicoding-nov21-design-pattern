@@ -1,6 +1,6 @@
 package com.linecorp.id.design.pattern.singleton.solution;
 
-public class InstanceSingleThread {
+public final class InstanceSingleThread {
 
     private static InstanceSingleThread instance;
 
